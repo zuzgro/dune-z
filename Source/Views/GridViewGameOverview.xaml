@@ -53,8 +53,8 @@
 
                                                 <Grid MinWidth="300" Margin="24,0,24,0" x:Name="DuneGridPage">
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="3*" />
-                                                        <ColumnDefinition MaxWidth="320">
+                                                        <ColumnDefinition Width="2*" />
+                                                        <ColumnDefinition MaxWidth="{DynamicResource GameDetailInfoWidth}">
                                                             <ColumnDefinition.Style>
                                                                 <Style TargetType="ColumnDefinition">
                                                                     <Setter Property="Width" Value="0" />
@@ -923,7 +923,7 @@
                                                                             <RowDefinition Height="24" />
                                                                             <RowDefinition Height="12" />
                                                                             <RowDefinition Height="Auto" />
-                                                                            <RowDefinition Height="*" />
+                                                                            <RowDefinition Height="0" />
                                                                             <RowDefinition Height="Auto" />
                                                                         </Grid.RowDefinitions>
                                                                         <Grid x:Name="DuneHowLongToBeatHeading" Grid.Row="0">
@@ -943,7 +943,7 @@
                                                                         <Grid x:Name="DuneHowLongToBeatValue" Grid.Row="2" MinHeight="28" VerticalAlignment="Top">
                                                                             <TextBlock Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat, FallbackValue='—'}" Style="{StaticResource DuneSummaryPrimaryText}" />
                                                                         </Grid>
-                                                                        <StackPanel Grid.Row="3" VerticalAlignment="Top" Margin="0,12,0,0" Style="{StaticResource DuneWideSummaryDetails}">
+                                                                        <StackPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="16,0,0,0" Style="{StaticResource DuneWideSummaryDetails}">
                                                                             <Grid x:Name="DuneMainExtraDetail" Margin="0,0,0,4" Tag="{PluginSettings Plugin=HowLongToBeat, Path=MainExtra, FallbackValue=0}" Style="{StaticResource DunePositiveSummaryValue}">
                                                                                 <Grid.ColumnDefinitions>
                                                                                     <ColumnDefinition Width="*" />
@@ -1070,15 +1070,17 @@
                                                                             </StackPanel>
                                                                         </Grid>
                                                                         <Grid x:Name="DuneAchievementsValue" Grid.Row="2" MinHeight="28" VerticalAlignment="Top">
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width="Auto" />
+                                                                                <ColumnDefinition Width="*" />
+                                                                            </Grid.ColumnDefinitions>
                                                                             <StackPanel Name="PART_DuneAchievements" Orientation="Horizontal">
                                                                                 <TextBlock Text="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.UnlockedCount, FallbackValue='-'}" Style="{StaticResource DuneSummaryPrimaryText}" />
                                                                                 <TextBlock Text="/" Style="{StaticResource DuneSummaryPrimaryText}" />
                                                                                 <TextBlock Text="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.AchievementCount, FallbackValue='-'}" Style="{StaticResource DuneSummaryPrimaryText}" />
                                                                             </StackPanel>
+                                                                            <ProgressBar Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center" Style="{StaticResource DuneSummaryProgress}" Height="4" Minimum="0" Maximum="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.AchievementCount, FallbackValue=1}" Value="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.UnlockedCount, FallbackValue=0}" Foreground="{DynamicResource AccentBrush}" Background="{DynamicResource ControlBackgroundBrush}" IsHitTestVisible="False" />
                                                                         </Grid>
-                                                                        <StackPanel Grid.Row="3" Margin="0,12,0,0">
-                                                                            <ProgressBar Style="{StaticResource DuneSummaryProgress}" Height="4" Minimum="0" Maximum="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.AchievementCount, FallbackValue=1}" Value="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.UnlockedCount, FallbackValue=0}" Foreground="{DynamicResource AccentBrush}" Background="{DynamicResource ControlBackgroundBrush}" IsHitTestVisible="False" />
-                                                                        </StackPanel>
                                                                     </Grid>
                                                                     <ToggleButton x:Name="DuneAchievementsToggle" IsChecked="{Binding IsSelected, ElementName=DuneAchievementsDetails, Mode=TwoWay}" Tag="{Binding Visibility, ElementName=DuneAchievementsDetails}" Style="{StaticResource DuneCardToggle}" AutomationProperties.Name="{DynamicResource LOCDuneAchievements}" />
                                                                 </Grid>
@@ -1224,7 +1226,7 @@
                                                                             <Style TargetType="Grid">
                                                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                                                 <Setter Property="Margin" Value="0,0,12,12" />
-                                                                                <Setter Property="MinHeight" Value="120" />
+                                                                                <Setter Property="MinHeight" Value="0" />
                                                                                 <Setter Property="Grid.Row" Value="1" />
                                                                                 <Setter Property="Grid.ColumnSpan" Value="2" />
                                                                                 <Setter Property="Background" Value="Transparent" />
@@ -1286,7 +1288,7 @@
                                                                                 <RowDefinition Height="24" />
                                                                                 <RowDefinition Height="12" />
                                                                                 <RowDefinition Height="Auto" />
-                                                                                <RowDefinition Height="*" />
+                                                                                <RowDefinition Height="0" />
                                                                                 <RowDefinition Height="Auto" />
                                                                             </Grid.RowDefinitions>
                                                                             <Grid x:Name="DuneDlcCatalogHeading">
@@ -1318,36 +1320,35 @@
                                                                             <Grid x:Name="DuneDlcCatalogValue" Grid.Row="2" MinHeight="28" VerticalAlignment="Top">
                                                                                 <StackPanel Orientation="Horizontal">
                                                                                     <TextBlock x:Name="DuneDlcCount" Text="{PluginSettings Plugin=CheckDlc, Path=ListDlcs.Count, FallbackValue=0}" Style="{StaticResource DuneSummaryPrimaryText}" />
-                                                                                    <TextBlock Text="{DynamicResource LOCDuneDlcItems}" Margin="6,0,0,0" VerticalAlignment="Center" Style="{StaticResource DuneSummarySecondaryText}" />
+                                                                                    <TextBlock Text="{DynamicResource LOCDuneDlcAvailable}" Margin="6,0,0,0" VerticalAlignment="Center" Style="{StaticResource DuneSummarySecondaryText}" />
+                                                                                    <ItemsControl x:Name="DuneDlcOwnershipCounts" ItemsSource="{Binding Groups, Source={StaticResource DuneDlcOwnership}}" Margin="0" VerticalAlignment="Center">
+                                                                                        <ItemsControl.ItemsPanel>
+                                                                                            <ItemsPanelTemplate>
+                                                                                                <StackPanel Orientation="Horizontal" />
+                                                                                            </ItemsPanelTemplate>
+                                                                                        </ItemsControl.ItemsPanel>
+                                                                                        <ItemsControl.ItemTemplate>
+                                                                                            <DataTemplate>
+                                                                                                <StackPanel Orientation="Horizontal">
+                                                                                                    <TextBlock Text="/" Margin="8,0,8,0" Style="{StaticResource DuneSummarySecondaryText}" />
+                                                                                                    <TextBlock Text="{Binding ItemCount}" Style="{StaticResource DuneSummarySecondaryText}" />
+                                                                                                    <TextBlock Margin="4,0,0,0">
+                                                                                                        <TextBlock.Style>
+                                                                                                            <Style TargetType="TextBlock" BasedOn="{StaticResource DuneSummarySecondaryText}">
+                                                                                                                <Setter Property="Text" Value="{DynamicResource LOCDuneDlcNotOwnedInline}" />
+                                                                                                                <Style.Triggers>
+                                                                                                                    <DataTrigger Binding="{Binding Name}" Value="True">
+                                                                                                                        <Setter Property="Text" Value="{DynamicResource LOCDuneDlcOwnedInline}" />
+                                                                                                                    </DataTrigger>
+                                                                                                                </Style.Triggers>
+                                                                                                            </Style>
+                                                                                                        </TextBlock.Style>
+                                                                                                    </TextBlock>
+                                                                                                </StackPanel>
+                                                                                            </DataTemplate>
+                                                                                        </ItemsControl.ItemTemplate>
+                                                                                    </ItemsControl>
                                                                                 </StackPanel>
-                                                                            </Grid>
-                                                                            <Grid Grid.Row="3" Margin="0,8,0,0" VerticalAlignment="Top">
-                                                                                <ItemsControl x:Name="DuneDlcOwnershipCounts" ItemsSource="{Binding Groups, Source={StaticResource DuneDlcOwnership}}" Margin="0">
-                                                                                    <ItemsControl.ItemsPanel>
-                                                                                        <ItemsPanelTemplate>
-                                                                                            <WrapPanel />
-                                                                                        </ItemsPanelTemplate>
-                                                                                    </ItemsControl.ItemsPanel>
-                                                                                    <ItemsControl.ItemTemplate>
-                                                                                        <DataTemplate>
-                                                                                            <StackPanel Orientation="Horizontal" Margin="0,0,16,0">
-                                                                                                <TextBlock Margin="0,0,6,0">
-                                                                                                    <TextBlock.Style>
-                                                                                                        <Style TargetType="TextBlock" BasedOn="{StaticResource DuneSummarySecondaryText}">
-                                                                                                            <Setter Property="Text" Value="{DynamicResource LOCDuneDlcNotOwned}" />
-                                                                                                            <Style.Triggers>
-                                                                                                                <DataTrigger Binding="{Binding Name}" Value="True">
-                                                                                                                    <Setter Property="Text" Value="{DynamicResource LOCDuneDlcOwned}" />
-                                                                                                                </DataTrigger>
-                                                                                                            </Style.Triggers>
-                                                                                                        </Style>
-                                                                                                    </TextBlock.Style>
-                                                                                                </TextBlock>
-                                                                                                <TextBlock Text="{Binding ItemCount}" Style="{StaticResource DuneSummarySecondaryText}" />
-                                                                                            </StackPanel>
-                                                                                        </DataTemplate>
-                                                                                    </ItemsControl.ItemTemplate>
-                                                                                </ItemsControl>
                                                                             </Grid>
                                                                         </Grid>
                                                                         <ToggleButton x:Name="DuneDlcToggle" IsChecked="{Binding IsSelected, ElementName=DuneDlcDetails, Mode=TwoWay}" Tag="{Binding Visibility, ElementName=DuneDlcDetails}" Style="{StaticResource DuneCardToggle}" AutomationProperties.Name="{DynamicResource LOCDuneDlc}" />

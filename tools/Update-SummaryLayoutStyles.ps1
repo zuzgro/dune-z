@@ -35,10 +35,9 @@ for ($mask = 0; $mask -lt 16; $mask++) {
     foreach ($mode in 'Narrow','Regular','Wide') {
         $state = $mode + '|' + ($flags -join '|')
         for ($index = 0; $index -lt $simple.Count; $index++) {
-            $position = if ($mode -eq 'Narrow') {
+            # Four visible statistics always share one row of four columns.
+            $position = if ($mode -eq 'Narrow' -and $simple.Count -lt 4) {
                 Placement $index 0 12
-            } elseif ($mode -eq 'Regular' -and $simple.Count -eq 4) {
-                Placement ([int][Math]::Floor($index / 2)) (($index % 2) * 6) 6
             } else {
                 $track = 12 / $simple.Count
                 Placement 0 ($index * $track) $track

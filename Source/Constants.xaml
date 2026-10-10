@@ -73,7 +73,7 @@
 
         <!--ThemeModifier Grid View Settings-->
         <sys:Boolean x:Key="GridViewGameCoverUseRoundedCorners">True</sys:Boolean>
-        <sys:Boolean x:Key="GridViewGameCoverShowPlatformBanner">True</sys:Boolean>
+        <sys:Boolean x:Key="GridViewGameCoverShowPlatformBanner">False</sys:Boolean>
         <sys:Boolean x:Key="GridViewGameCoverPreferSourceBanner">True</sys:Boolean>
         <sys:Boolean x:Key="DuneManualGamesPreferPlatformBanner">True</sys:Boolean>
         <sys:Double x:Key="GridViewPlatformBannerHeight">32</sys:Double>

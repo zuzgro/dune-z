@@ -32,7 +32,7 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="Opacity" Value="0.65" />
+        <Setter Property="Opacity" Value="0.8" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
@@ -45,7 +45,7 @@
                         <Image Source="{Binding Icon}"
                                RenderOptions.BitmapScalingMode="Fant"
                                Margin="3"
-                               Opacity="0.95" />
+                               Opacity="1" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -351,6 +351,17 @@
                                     </StackPanel>
                                 </Border>
                                 
+                                <!-- Neon-style source icons: one subtle icon per copy (DuplicateHider), top-right of the cover. -->
+                                <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="6" Panel.ZIndex="10">
+                                    <ContentControl x:Name="DuplicateHider_SourceSelector1" Height="24"
+                                                    RenderOptions.BitmapScalingMode="Fant"
+                                                    HorizontalAlignment="Right" VerticalAlignment="Top">
+                                        <ContentControl.Effect>
+                                            <DropShadowEffect BlurRadius="4" ShadowDepth="0" Opacity="0.7" Color="Black" />
+                                        </ContentControl.Effect>
+                                    </ContentControl>
+                                </Grid>
+
                                 <Grid Name="GameControls" Visibility="Collapsed">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -372,37 +383,6 @@
 
                             <ContentControl x:Name="DuplicateHider_ContentControl1" Tag="{StaticResource DuneCoverCopyStateStyle}"
                                             Width="0" Height="0" Opacity="0" IsHitTestVisible="False" Focusable="False" />
-                            <Grid Width="{Settings GridItemWidth}" Height="28" Tag="{DynamicResource DuneGridShowCopySelector}">
-                                <Grid.Style>
-                                    <Style TargetType="Grid">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                        <Style.Triggers>
-                                            <MultiDataTrigger>
-                                                <MultiDataTrigger.Conditions>
-                                                    <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
-                                                    <Condition Binding="{Binding Content.MoreThanOneCopy, ElementName=DuplicateHider_ContentControl1, FallbackValue=False}" Value="True" />
-                                                </MultiDataTrigger.Conditions>
-                                                <Setter Property="Visibility" Value="Visible" />
-                                            </MultiDataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Grid.Style>
-                                <ContentControl x:Name="DuplicateHider_SourceSelector1" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center">
-                                    <ContentControl.Style>
-                                        <Style TargetType="ContentControl">
-                                            <Setter Property="Visibility" Value="Hidden" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=GameListItem}}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{Binding IsKeyboardFocusWithin, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </ContentControl.Style>
-                                </ContentControl>
-                            </Grid>
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>

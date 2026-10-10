@@ -107,8 +107,11 @@
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Wide|Visible|Collapsed|Visible|Visible">
                 <Setter Property="Grid.ColumnSpan" Value="4" />
             </DataTrigger>
+            <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Narrow|Visible|Visible|Visible|Visible">
+                <Setter Property="Grid.ColumnSpan" Value="3" />
+            </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Regular|Visible|Visible|Visible|Visible">
-                <Setter Property="Grid.ColumnSpan" Value="6" />
+                <Setter Property="Grid.ColumnSpan" Value="3" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Wide|Visible|Visible|Visible|Visible">
                 <Setter Property="Grid.ColumnSpan" Value="3" />
@@ -176,11 +179,12 @@
                 <Setter Property="Grid.ColumnSpan" Value="4" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Narrow|Visible|Visible|Visible|Visible">
-                <Setter Property="Grid.Row" Value="1" />
+                <Setter Property="Grid.Column" Value="3" />
+                <Setter Property="Grid.ColumnSpan" Value="3" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Regular|Visible|Visible|Visible|Visible">
-                <Setter Property="Grid.Column" Value="6" />
-                <Setter Property="Grid.ColumnSpan" Value="6" />
+                <Setter Property="Grid.Column" Value="3" />
+                <Setter Property="Grid.ColumnSpan" Value="3" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Wide|Visible|Visible|Visible|Visible">
                 <Setter Property="Grid.Column" Value="3" />
@@ -259,11 +263,12 @@
                 <Setter Property="Grid.ColumnSpan" Value="4" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Narrow|Visible|Visible|Visible|Visible">
-                <Setter Property="Grid.Row" Value="2" />
+                <Setter Property="Grid.Column" Value="6" />
+                <Setter Property="Grid.ColumnSpan" Value="3" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Regular|Visible|Visible|Visible|Visible">
-                <Setter Property="Grid.Row" Value="1" />
-                <Setter Property="Grid.ColumnSpan" Value="6" />
+                <Setter Property="Grid.Column" Value="6" />
+                <Setter Property="Grid.ColumnSpan" Value="3" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Wide|Visible|Visible|Visible|Visible">
                 <Setter Property="Grid.Column" Value="6" />
@@ -347,12 +352,12 @@
                 <Setter Property="Grid.ColumnSpan" Value="4" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Narrow|Visible|Visible|Visible|Visible">
-                <Setter Property="Grid.Row" Value="3" />
+                <Setter Property="Grid.Column" Value="9" />
+                <Setter Property="Grid.ColumnSpan" Value="3" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Regular|Visible|Visible|Visible|Visible">
-                <Setter Property="Grid.Row" Value="1" />
-                <Setter Property="Grid.Column" Value="6" />
-                <Setter Property="Grid.ColumnSpan" Value="6" />
+                <Setter Property="Grid.Column" Value="9" />
+                <Setter Property="Grid.ColumnSpan" Value="3" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=DuneBasicCards}" Value="Wide|Visible|Visible|Visible|Visible">
                 <Setter Property="Grid.Column" Value="9" />
